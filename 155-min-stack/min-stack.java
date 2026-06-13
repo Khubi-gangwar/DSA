@@ -20,10 +20,10 @@ class MinStack {
     }
     
     public void pop() {
-        if(st.size() > 0 && minSt.size() > 0) {
+        // if(st.size() > 0 && minSt.size() > 0) {
         st.pop();
         minSt.pop();
-        }
+        // }
     }
     
     public int top() {
