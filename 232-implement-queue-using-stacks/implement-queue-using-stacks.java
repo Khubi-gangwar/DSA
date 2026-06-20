@@ -6,30 +6,24 @@ class MyQueue {
     }
     
     public void push(int x) {
-          st.push(x);
+         if(st.size() == 0) st.push(x);
+         else {
+            while(st.size() > 0) {
+               st1.push(st.pop());
+            }
+            st.push(x);
+            while(st1.size() > 0) {
+                st.push(st1.pop());
+            }
+         }
     }
     
     public int pop() {
-        while(st.size() > 1) {
-            st1.push(st.pop());
-        }
-        int x = st.peek();
-        st.pop();
-        while(st1.size() > 0) {
-            st.push(st1.pop());
-        }
-        return x;
+        return st.pop();
     }
     
     public int peek() {
-       while(st.size() > 1) {
-         st1.push(st.pop());
-       } 
-       int x = st.peek();
-       while(st1.size() > 0) {
-        st.push(st1.pop());
-       }
-       return x;
+      return st.peek();
     }
     
     public boolean empty() {
